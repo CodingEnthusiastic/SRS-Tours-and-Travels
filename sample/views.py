@@ -7,7 +7,13 @@ import numpy as np
 from python_tsp.exact import solve_tsp_dynamic_programming
 
 def project(request):
-	return render(request,"home.html")
+	context = {}
+	if 'email' in request.session:
+		context['email'] = request.session['email']
+		context['is_authenticated'] = True
+	else:
+		context['is_authenticated'] = False
+	return render(request,"home.html", context)
 
 def home(request):
 	if 'email' not in request.session:
@@ -21,6 +27,10 @@ def viewusers(request):
 	return render(request,'display.html',{'users':users})
 
 def loginpage(request):
+	# Redirect if already logged in
+	if 'email' in request.session:
+		return redirect('/home')
+	
 	form = UserLoginForm()
 	if request.method == 'POST':
 		form = UserLoginForm(request.POST)
@@ -33,7 +43,7 @@ def loginpage(request):
 				if 'email' not in request.session:
 					return HttpResponse("Session Expired")
 				else:
-					return render(request,'userhome.html',{'email':email})
+					return redirect('/home')
 			else:
 				return render(request,"login.html",{'form':form})
 		else:
@@ -253,10 +263,11 @@ def sam(request):
 
 def logout(request):
 	del request.session['email']
-	form = UserLoginForm()
-	return render(request,'home.html')
+	return redirect('/')
 
 def signuppage(request):
+	if 'email' in request.session:
+		return redirect('/home')
 	form = userdataForm()
 	if request.method == 'POST':
 		form = userdataForm(request.POST)
