@@ -1,153 +1,322 @@
-{% extends 'homepage.html' %}
-
-{% block block1 %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Smart Tours</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            --light-bg: #f8f9fa;
+            --light-text: #1a1a2e;
+            --dark-bg: #1a1a2e;
+            --dark-text: #f8f9fa;
+            --accent: #00bcd4;
+            --accent-dark: #0097a7;
+        }
+        
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        
+        .navbar-light {
+            background-color: rgba(248, 249, 250, 0.95) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-dark {
+            background-color: rgba(26, 26, 46, 0.95) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+        
+        .mode-toggle {
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+        
+        .mode-toggle:hover {
+            transform: rotate(20deg);
+        }
+        
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .login-card {
+            background: linear-gradient(135deg, rgba(0,188,212,0.1), rgba(0,150,167,0.1));
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 40px rgba(0,188,212,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        body.dark-mode .login-card {
+            background: linear-gradient(135deg, rgba(0,188,212,0.15), rgba(0,150,167,0.15));
+        }
+        
+        .login-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .login-subtitle {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-control {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            color: var(--light-text);
+        }
+        
+        body.dark-mode .form-control {
+            color: var(--dark-text);
+        }
+        
+        .form-control:focus {
+            background-color: transparent;
+            border-color: var(--accent-dark);
+            box-shadow: 0 0 0 0.2rem rgba(0,188,212,0.25);
+            color: var(--light-text);
+        }
+        
+        body.dark-mode .form-control:focus {
+            color: var(--dark-text);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,188,212,0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .auth-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-link:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            opacity: 0.5;
+        }
+        
+        .helper-text {
+            text-align: center;
+            opacity: 0.7;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        body.light-mode footer {
+            background: #111;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand nav-brand" href="/">
+                <i class="bi bi-globe"></i> Smart Tours
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/loginpage">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signuppage">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <span class="mode-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                            <i class="bi bi-moon-fill"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
-    <title>Login</title>
-  </head>
-  <style type="text/css">
-  	.col-md-2{
-  		border-style: groove;
-  		height: 98vh;
-  	}
-  	.second-col-bg{
-  		background-image: url("../static/images/loginbg.jpg");
-  		background-repeat: no-repeat, repeat;
-  		background-position: center;
-  		background-size: cover;
-  		height: 98vh;
-  	}
-  	.btn-primary{
-  		width: 100px;
-  	}
-  	.card {
-	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	  transition: 0.3s;
-	  width: 500px;
-	  height: 310px;
-	  border-radius: 10px;
-	  left:35%;
-	  top: 20%
-	}
-	footer{
-   background: #111;
-   height: auto;
-   width: 100vw;
-   font-family: "Open Sans"; 
-   padding-top:40px;
-   color: #fff;
-}
-.footer-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-.footer-content h3{
-    font-size: 1.8rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 3rem;
-}
-.footer-content p{
-    max-width: 500px;
-    margin: 10px auto;
-    line-height: 28px;
-    font-size: 14px;
-}
-.socials{
-    background-color: #000 ;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0 3rem 0;
-}
-.socials li{
-    margin:0 10px;
-}
-.socials a{
-    text-decoration: none;
-    color: #fff;
-}
-.socials a i{
-    font-size: 1.1rem;
-    transition: color .4s ease;
-}
-.socials a:hover{
-    color: aqua;
-}
-.footer-bottom{
-    background: #000;
-    width: 100vw;
-    padding: 20px 0;
-    text-align: center;
-
-}
-.footer-content p{
-    font-size: 14px;
-    word-spacing: 2px;
-    text-transform: capitalize;
-}
-.footer-bottom span{
-    text-transform: uppercase;
-    opacity: .4;
-    font-weight: 200;
-}
-  </style>
-{% endblock %}
-{% block block2 %}
-	<div class="fluid-container second-col-bg">
-		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Smart Tours</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/loginpage">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signuppage" tabindex="-1" aria-disabled="true">SignUp</a>
-        </li>
-        <li class="nav-item" style="margin-left: 1100px;">
-          <a class="nav-link" href="/aboutus" tabindex="-1" aria-disabled="true">About Us</a>
-        </li>
-      </ul>
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-title">
+                <i class="bi bi-box-arrow-in-right"></i> Sign In
+            </div>
+            <p class="login-subtitle">Welcome back! Sign in to your account</p>
+            
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="bi bi-unlock"></i> Sign In
+                </button>
+            </form>
+            
+            <div class="divider">— or —</div>
+            
+            <div class="helper-text">
+                <p style="margin-bottom: 0.5rem;">Forgot your password? <a href="/forgotpassword" class="auth-link">Reset here</a></p>
+                <p style="margin: 0;">Don't have an account? <a href="/signuppage" class="auth-link">Sign up now</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
-				<div class="card">
-					<center>
-						<br>
-						<div style="background-color: yellow;border-radius: 5px;border-color: black; border-style: solid;">
-							<h3>Login</h3>
-						</div>
-						<br>
-						<br>
-						<form method="POST">
-						{% csrf_token %}
-						{{form.as_p}}
-            <a href="/forgotpassword">Forgot Password?</a><br>
-            Don't have an account?<a href="/signuppage">SignUp</a>
-						<br>
-						<input type="submit" value="Login" class="btn btn-primary">
-						</form>
-					</center>
-			    </div>
-			</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="text-align: center; margin: 0; opacity: 0.8;">© 2026 Smart Tours. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Dark/Light Mode Script -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Load theme preference from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        body.classList.remove('light-mode', 'dark-mode');
+        body.classList.add(savedTheme);
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
+            const newTheme = currentTheme === 'light-mode' ? 'dark-mode' : 'light-mode';
+            
+            body.classList.remove('light-mode', 'dark-mode');
+            body.classList.add(newTheme);
+            
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('bi-moon-fill');
+                icon.classList.add('bi-sun-fill');
+                document.querySelector('.navbar').classList.remove('navbar-light');
+                document.querySelector('.navbar').classList.add('navbar-dark');
+            } else {
+                icon.classList.remove('bi-sun-fill');
+                icon.classList.add('bi-moon-fill');
+                document.querySelector('.navbar').classList.remove('navbar-dark');
+                document.querySelector('.navbar').classList.add('navbar-light');
+            }
+        }
+
+        // Initialize navbar theme
+        updateThemeIcon();
+    </script>
+</body>
+</html>
 	<!--<h1>Nav Bar</h1>
 	{{msg}}
 	<center>

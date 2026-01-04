@@ -127,7 +127,12 @@ USE_L10N = True
 
 USE_TZ = False
 
-
+# Add this to settings.py
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
