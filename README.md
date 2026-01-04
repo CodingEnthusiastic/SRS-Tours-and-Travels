@@ -1,4 +1,4 @@
-# Shree Tours and Travel
+<img width="1919" height="958" alt="image" src="https://github.com/user-attachments/assets/17b5143a-3ca2-42f7-bf66-2ea866c10770" /># Shree Tours and Travel
 
 A comprehensive Travel and Tourism website built with Django framework, providing an all-in-one platform for tour planning, bus booking, flight booking, and data visualization with advanced algorithms.
 
@@ -152,6 +152,23 @@ The application will be available at: `http://127.0.0.1:8000/`
 http://127.0.0.1:8000/admin/
 ```
 Log in with your superuser credentials.
+
+### Demonstration
+<img width="1919" height="958" alt="image" src="https://github.com/user-attachments/assets/6304e1ab-5296-4f3c-a62d-e2e1071f283a" />
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/673929b4-3d40-4285-8bfe-b45dc872fcfb" />
+<img width="1919" height="947" alt="image" src="https://github.com/user-attachments/assets/31f273fb-7a91-43b3-acdd-27e0eb15608d" />
+<img width="1919" height="545" alt="image" src="https://github.com/user-attachments/assets/91670ed1-ea2d-4fc6-9615-feb759371388" />
+<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/262299da-4c7b-40b6-b59c-eb88589eee61" />
+<img width="1919" height="768" alt="image" src="https://github.com/user-attachments/assets/f00a89c4-dc07-4cbe-b465-af6d8441e5c7" />
+<img width="1919" height="947" alt="image" src="https://github.com/user-attachments/assets/4e777f59-bf6f-4b9b-9439-d6f17441f18a" />
+<img width="1919" height="963" alt="image" src="https://github.com/user-attachments/assets/06eeb840-f218-4b78-aea4-90138b238ac1" />
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/9058000e-34e1-40ae-a393-cd1ab9388d33" />
+<img width="1912" height="972" alt="image" src="https://github.com/user-attachments/assets/2942c08d-fb68-4261-ba25-5b1c7e1b8ec3" />
+<img width="1919" height="944" alt="image" src="https://github.com/user-attachments/assets/5bc0a1f3-7e7b-486c-8890-a6f3b77a605c" />
+<img width="1916" height="775" alt="image" src="https://github.com/user-attachments/assets/5e99946d-ebc1-4b99-b03f-5d4230ee4a3c" />
+<img width="1919" height="637" alt="image" src="https://github.com/user-attachments/assets/3bd6e37c-bf31-4df7-9885-7d6e0e1c32b5" />
+<img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/9247e5fe-13a7-4fff-bb9d-ef646820135e" />
+<img width="1917" height="969" alt="image" src="https://github.com/user-attachments/assets/8f5ba572-bed9-46fa-b99d-e6dffca6d6fa" />
 
 ### Troubleshooting
 - **ModuleNotFoundError**: Ensure virtual environment is activated
