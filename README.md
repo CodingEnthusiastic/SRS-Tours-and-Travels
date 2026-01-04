@@ -1,39 +1,193 @@
-# Travel-And-Tourism
-Link for Exceution Video of the Project: https://youtu.be/wU_f0JG_hdc
-Link for LinkedIn Article: https://www.linkedin.com/pulse/travel-tourismskill-development-project-shaik-riyaz-basha
-Link to Host the Project On Heroku : https://studygyaan.com/django/django-everywhere-host-your-django-app-for-free-on-heroku
-A complete Travel and Tourism Website developed using Django framework
+# Shree Tours and Travel
 
-Modules:
-We divided our project into five modules
+A comprehensive Travel and Tourism website built with Django framework, providing an all-in-one platform for tour planning, bus booking, flight booking, and data visualization with advanced algorithms.
 
-1.Tours Module
+## 📋 Table of Contents
+- [Features](#features)
+- [Importance](#importance)
+- [Project Modules](#project-modules)
+- [Prerequisites](#prerequisites)
+- [Installation & Setup](#installation--setup)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [References](#references)
+- [License](#license)
+- [Author](#author)
 
-2.Bus Booking Module
+## ✨ Features
 
-3.Flight Booking Module
+- **Tours Module**: Browse, create, and customize tour packages
+- **Bus Booking**: Search and book bus tickets with real-time seat availability
+- **Flight Booking**: Book flights with multiple seating options
+- **Smart Tour Planning**: AI-powered tour planning using Fractional Knapsack Algorithm
+- **Route Optimization**: Shortest path calculation using Travelling Salesman Problem (TSP)
+- **Data Visualization**: Interactive charts showing tourism trends and seasonality
+- **User Authentication**: Secure login and profile management
+- **Payment Integration**: Seamless payment processing
 
-4.DataScience Module
+## 🎯 Importance
 
-5.Mathematical Programming Module
+This application demonstrates a real-world enterprise travel management system with practical applications of:
+- **Advanced Algorithms**: Implementation of Fractional Knapsack and TSP for optimal tour planning
+- **Full-Stack Development**: Complete Django-based web application
+- **Database Design**: Complex relational database for travel operations
+- **Data Visualization**: Business intelligence using Chart.js
+- **Security**: Environment-based configuration management for sensitive data
+- **Scalability**: Cloud-ready architecture (Heroku compatible)
 
+## 📦 Project Modules
 
+### 1. **Tours Module**
+Browse all available tour packages or create custom tour plans. Users can filter by budget and time constraints to find the perfect itinerary.
 
-Tours Module:
-The web page related to tourism i.e. tours page where user can see all the tour plans available in database and book a tour which matches his expectations. If end user didn't find a tour plan that covers all the tourist places he wanted to visit, he can create his own tour plan with his requirements.
+### 2. **Bus Booking Module**
+- View available buses and schedules
+- Search by source, destination, and date
+- Real-time seat availability
+- Book tickets with confirmation
 
-Bus Booking Module :
-All the features or web pages related to bus booking comes under this module. End user can view this page by clicking 'Book Bus', initially all the buses and their details available in database will be displayed to the user. And User can search for a particular bus by entering 'From', 'To' locations and date in the input fields provided. Then, only bus with that particular schedule will be shown to the user. Later user can see booked and available seats of a bus by clicking on 'view seats', after selecting he will be able to see ticket details and he can book the ticket by clicking on confirm button.
+### 3. **Flight Booking Module**
+- Browse available flights
+- Filter by route and date
+- Select seat class and quantity
+- Secure booking process
 
-Mathematical Programming Module:
-We developed two strong and very useful features using Fractional Knap-Sack Algorithm and Travelling Salesman Module from python. While create own tour, user will be asked to enter Maximum time(in days) and Maximum budget he wish to spend on the tour. Using fractional knap-sack we can display his plan by including the tourist places that fit to his requirements. And then user and manager will be able to see shortest path that covers all those tourist places.
+### 4. **Mathematical Programming Module**
+- **Fractional Knapsack Algorithm**: Optimize tour packages within budget/time constraints
+- **TSP Algorithm**: Calculate shortest path covering all tourist destinations
 
-Flight Booking Module:
-All the features or web pages related to flight booking comes under this module. End user can view this page by clicking 'Book Flight', initially all the flights and their details available in database will be displayed to the user. And User can search for a particular flight by entering 'From', 'To' locations and date in the input fields provided. Then, only the flight with that particular schedule will be shown to the user. Later user can select the class of the seat and number of seats, he can book the ticket by clicking on confirm button.
+### 5. **Data Science Module**
+- Pie charts showing tourist place popularity
+- Seasonal travel trends visualization
+- Interactive dashboard with Chart.js
 
-Data Science Module:
-This module includes all the Data Visualization Features that we developed using chartJs Library. End User Will be able to visualize data in the form of pie charts.
+---
 
-One pie chart is regarding - Number of people visiting to different Tourist Places.
+## 📋 Prerequisites
 
-Other pie chart is regarding- Number of people planning their tours in different seasons.
+Before you begin, ensure you have the following installed:
+- Python 3.8+
+- MySQL Server (local or remote)
+- pip (Python package manager)
+- git
+
+## 🚀 Installation & Setup
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/CodingEnthusiastic/SRS-Tours-and-Travels.git
+cd Travel-And-Tourism
+```
+
+### Step 2: Create Virtual Environment
+```bash
+# On Windows
+python -m venv venv
+venv\Scripts\activate
+
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Configure Environment Variables
+```bash
+# Copy the example env file
+cp .env.example .env
+
+# Edit .env with your configuration
+```
+
+Edit `.env` file with your database and Django settings:
+```
+SECRET_KEY=your-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=127.0.0.1,localhost
+
+DB_ENGINE=
+DB_NAME=
+DB_USER=root
+DB_PASSWORD=your_db_password
+DB_HOST=localhost
+DB_PORT=3306
+```
+
+### Step 5: Setup MySQL Database
+```bash
+# Create a new database
+mysql -u root -p
+CREATE DATABASE demodreamtour CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+```
+
+### Step 6: Run Migrations
+```bash
+python manage.py migrate
+```
+
+### Step 7: Create Superuser (Admin Account)
+```bash
+python manage.py createsuperuser
+```
+Follow the prompts to create an admin account.
+
+---
+
+## ▶️ Running the Application
+
+### Start the Development Server
+```bash
+python manage.py runserver
+```
+
+The application will be available at: `http://127.0.0.1:8000/`
+
+### Access Admin Panel
+```
+http://127.0.0.1:8000/admin/
+```
+Log in with your superuser credentials.
+
+### Troubleshooting
+- **ModuleNotFoundError**: Ensure virtual environment is activated
+- **Database Connection Error**: Check MySQL is running and .env credentials are correct
+- **Port 8000 already in use**: `python manage.py runserver 8001`
+
+---
+
+## 📖 Usage
+
+1. **Create Account**: Sign up on the homepage
+2. **Browse Tours**: View available tour packages
+3. **Book Transport**: Book buses or flights
+4. **Create Custom Tour**: Plan your own tour within budget/time constraints
+5. **View Dashboard**: Check bookings and visualize travel data
+6. **Admin Panel**: Manage packages, bookings, and user data
+
+---
+
+## 🔗 References & Resources
+
+- **Django Documentation**: https://docs.djangoproject.com/
+- **MySQL Documentation**: https://dev.mysql.com/doc/
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Copyright © 2026 CodingEnthusiastic. All rights reserved.
+
+---
+
+## 👤 Author
+
+**CodingEnthusiastic**
+- GitHub: [@CodingEnthusiastic](https://github.com/CodingEnthusiastic)
+- Repository: [SRS-Tours-and-Travels](https://github.com/CodingEnthusiastic/SRS-Tours-and-Travels)
