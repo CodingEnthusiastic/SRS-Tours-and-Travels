@@ -3,16 +3,16 @@
 A comprehensive Travel and Tourism website built with Django framework, providing an all-in-one platform for tour planning, bus booking, flight booking, and data visualization with advanced algorithms.
 
 ## 📋 Table of Contents
-- [Features](#features)
-- [Importance](#importance)
-- [Project Modules](#project-modules)
-- [Prerequisites](#prerequisites)
-- [Installation & Setup](#installation--setup)
-- [Running the Application](#running-the-application)
-- [Usage](#usage)
-- [References](#references)
-- [License](#license)
-- [Author](#author)
+- Features
+- Importance
+- Project Modules
+- Prerequisites
+- Installation & Setup
+- Running the Application
+- Usage
+- References
+- License
+- Author
 
 ## ✨ Features
 
