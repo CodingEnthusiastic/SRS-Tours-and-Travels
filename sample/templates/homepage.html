@@ -130,30 +130,37 @@
 {% endblock %}
 {% block block2 %}
 <div class="fluid-container" border=2>
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding: 25px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+  <div class="container-fluid" style="padding: 0 40px;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" style="border-color: #00bcd4;">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Smart Tours</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <a class="navbar-brand" href="#" style="font-size: 32px; font-weight: bold; letter-spacing: 2px; color: #00bcd4; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">✈ Smart Tours</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 50px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#" style="font-size: 18px; padding: 15px 25px; color: #fff; transition: all 0.3s ease; border-radius: 5px;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/loginpage">Login</a>
+          <a class="nav-link" href="/loginpage" style="font-size: 18px; padding: 15px 25px; color: #fff; transition: all 0.3s ease; border-radius: 5px;">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signuppage" tabindex="-1" aria-disabled="true">SignUp</a>
+          <a class="nav-link" href="/signuppage" tabindex="-1" aria-disabled="true" style="font-size: 18px; padding: 15px 25px; color: #fff; transition: all 0.3s ease; border-radius: 5px;">SignUp</a>
         </li>
-        <li class="nav-item" style="margin-left: 1100px;">
-          <a class="nav-link" href="/aboutus" tabindex="-1" aria-disabled="true">About Us</a>
+        <li class="nav-item" style="margin-left: 950px;">
+          <a class="nav-link" href="/aboutus" tabindex="-1" aria-disabled="true" style="font-size: 18px; padding: 15px 25px; color: #fff; transition: all 0.3s ease; border-radius: 5px;">About Us</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<style>
+  .navbar-nav .nav-link:hover {
+    background-color: #00bcd4;
+    color: #000 !important;
+    transform: scale(1.05);
+  }
+</style>
 			<div class="second-col-bg">
 				<h1 style="font-size: 80px;opacity: 0.8;color: white;" align="center">Smart Tours</h1>
 				<h4 style="font-family:comic sans ms;color: white;margin-left: 820px;">Vacation as a LifeStyle.....</h4>
