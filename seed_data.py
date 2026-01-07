@@ -65,6 +65,7 @@ flight_data = [
     ('Delhi', 'Goa', 2, 15, 1, 45, 4200, 160),
     ('Chennai', 'Delhi', 2, 30, 2, 0, 4800, 140),
     ('Bangalore', 'Chennai', 1, 0, 0, 45, 2800, 170),
+    ('Bangalore', 'Mumbai', 1, 0, 0, 45, 2800, 170),
 ]
 
 flight_count = 0
